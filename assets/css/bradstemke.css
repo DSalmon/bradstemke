@@ -1,0 +1,50 @@
+#content {
+  padding: 24px;
+  margin: 0 auto; }
+  
+  #content p {
+    font: 400 18px/34px "Nitti", serif;
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 30px;
+    color: rgba(50, 50, 50, 0.9); }
+  #content a {
+    color: rgba(50, 50, 50, 0.7);
+    font-family: "Nitti", serif;
+    text-decoration: underline; }
+  #content a:hover {
+    color: #d1cb70; }
+  #content #portrait {
+    display: block;
+    width: 200px;
+    height: 200px;
+    margin: 40px auto 70px auto;
+    border-radius: 100px; }
+
+@media screen and (min-width: 320px) {
+  
+#wrapper {
+  width: 100%;
+  margin: 0 auto;
+  background-color: white; }
+
+footer {
+  margin: 0 auto;
+  width: 200px;
+  margin: 20px auto 0px auto;
+  padding-bottom: 40px; }
+  footer p {
+    font: 400 12px "Nitti", serif;
+    font-family: "Nitti", serif;
+    text-align: center;
+    margin-top: 50px;
+    color: rgba(50, 50, 50, 0.9); } }
+
+@media screen and (min-width: 768px) {
+  #wrapper { width: 500px; }
+}
+
+@font-face {
+  font-family: Nitti;
+  src: url('../fonts/Nitti.otf');
+}
