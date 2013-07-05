@@ -1,51 +1,71 @@
 // style.sass
 
-#content 
-  padding: 24px
-  margin: 0 auto 
-  
-  p 
-    font: 400 18px/34px "Nitti", serif
-    text-align: center
-    margin-bottom: 20px
-    margin-top: 30px
-    color: rgba(50, 50, 50, 0.9)
-  a 
-    color: rgba(50, 50, 50, 0.7)
-    font-family: "Nitti", serif
-    text-decoration: underline 
-  a:hover 
-    color: #d1cb70
-  #portrait 
-    display: block
-    width: 200px
-    height: 200px
-    margin: 40px auto 70px auto
-    border-radius: 100px
+@font-face 
+  font-family: Nitti
+  src: url('../fonts/Nitti.otf')
 
-@media screen and (min-width: 320px) 
+html 
+  background: url(../images/bs_bg.jpg) no-repeat center center fixed
+  -webkit-background-size: cover
+  -moz-background-size: cover
+  -o-background-size: cover
+  background-size: cover
+
+// Font Styling
+p, h3
+  font: 400 18px/34px "Nitti", serif
+  text-align: center
+  color: rgba(50, 50, 50, 0.9)
+a 
+  color: rgba(50, 50, 50, 0.7)
+  font-family: "Nitti", serif
+  text-decoration: underline 
+a:hover 
+  color: #d1cb70
+
+// Header
+header
+  padding-top: 50px
+  height: 200px
+  border-bottom: 1px solid #D9D9D9
+
+// Content
+.bio 
+  border-bottom: 1px solid #D9D9D9
+  padding: 30px 24px 0px 24px
+  p
+    text-align: center
+    padding: 0px 0px 30px 0px
+    margin: 0 auto    
+    color: rgba(50, 50, 50, 0.9)
   
 #wrapper 
   width: 100%
   margin: 0 auto
-  background-color: white
+  background: rgba(250, 250, 250, 0.5)
 
-footer 
-  margin: 0 auto
-  width: 200px
-  margin: 20px auto 0px auto
-  padding-bottom: 40px
-  footer p 
-    font: 400 12px "Nitti", serif
-    font-family: "Nitti", serif
+  footer 
+    padding: 40px 0px 40px 0px
     text-align: center
-    margin-top: 50px
-    color: rgba(50, 50, 50, 0.9)
+    a
+      font: 400 18px "Nitti", serif        
+      text-decoration: none
+      color: rgba(50, 50, 50, 0.9)
+    a:hover
+      color: rgba(50, 50, 50, 0.9)
+      text-decoration: underline
+
+// Media
+@media screen and (min-width: 320px) and (max-width: 480px)
+  p
+    font-size: 12px
+  header
+    height: 275px
+    .greeting
+      margin: 0 auto
+      text-align: center
+      width: 250px
 
 @media screen and (min-width: 768px) 
   #wrapper 
-    width: 500px
-
-@font-face 
-  font-family: Nitti
-  src: url('../fonts/Nitti.otf')
+    width: 700px
