@@ -4,7 +4,7 @@
 }
 
 /* line 14, ../sass/style.sass */
-p, h3 {
+p, h1 {
   font-family: "Nitti", serif;
   text-align: center;
   color: rgba(50, 50, 50, 0.9);
@@ -23,12 +23,12 @@ p {
 }
 
 /* line 25, ../sass/style.sass */
-h3 {
+h1 {
   font-size: 2em;
 }
 @media screen and (min-width: 320px) and (max-width: 480px) {
   /* line 25, ../sass/style.sass */
-  h3 {
+  h1 {
     font-size: 1.5em;
   }
 }
@@ -58,7 +58,7 @@ header {
     padding-bottom: 1.25em;
   }
   /* line 46, ../sass/style.sass */
-  header h3, header p {
+  header h1, header p {
     color: #ecf0f1;
   }
 }
@@ -125,16 +125,22 @@ footer {
 footer a {
   font: 400 1em "Nitti", serif;
   text-decoration: none;
-  color: rgba(52, 152, 219, 0.9);
+  color: rgba(50, 50, 50, 0.9);
 }
-/* line 88, ../sass/style.sass */
+@media screen and (min-width: 320px) and (max-width: 480px) {
+  /* line 84, ../sass/style.sass */
+  footer a {
+    color: rgba(52, 152, 219, 0.9);
+  }
+}
+/* line 90, ../sass/style.sass */
 footer:hover {
   color: rgba(50, 50, 50, 0.9);
   text-decoration: underline;
 }
 
 @media screen and (min-width: 768px) {
-  /* line 94, ../sass/style.sass */
+  /* line 96, ../sass/style.sass */
   #wrapper {
     width: 700px;
   }
