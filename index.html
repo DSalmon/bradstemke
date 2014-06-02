@@ -9,53 +9,78 @@
   <meta name="title" content="Brad Stemke">
   <meta name="description" content="Brad Stemke / optimist . adventurer . collector">
   <meta name="author" content="Brad Stemke">
-  <meta name="Copyright" content="Copyright Brad Stemke 2013. All Rights Reserved.">
+  <meta name="Copyright" content="Copyright Brad Stemke 2014. All Rights Reserved.">
 
   <!-- Title -->
   <title>Brad Stemke</title>
   
-  <!-- Styles -->
+  <!-- Styles -->  
+  <link href="assets/css/reset.css" rel="stylesheet" type="text/css">
   <link href="assets/css/style.css" rel="stylesheet" type="text/css">
   
 </head>
 
-<body id="wrapper">
-  
-  <header>
+<body>
 
-    <h1>Brad Stemke</h1>
-    <p>Front End Developer & Designer</p>
-    <p>Optimist . Adventurer . Collector</p>
-
-  </header>
-  
-  <div class="bio">  
-    <p>
-      I like to code, and I like what coding can create. Working with people to help shape and bring their ideas to life on the web is something I really enjoy. I create in HTML, Sass/CSS, JS, and PHP. I enjoy working with others on projects, but when I am working alone, I go under the name, Pocket Radio. I also maintain several personal colletions at home, the main one being my collection of found audio, mainly in the form of discarded cassettes. I am building an online archive of my audio collection, which can be found here, <a href="http://www.lonelywithnoise.com" target="blank">Lonely With Noise</a>.
-    </p>
-
-    <p>
-      When I am not at home, I am usually out thrifting or at an estate sale, having a burger, spending time with good friends, or driving somewhere new to explore. I take photos with my iPhone & Fuji Disposable cameras.
-    </p>
+  <div id="wrapper">
+    <header id="top">
+      <h1>Brad Stemke</h1>
+      <p>Front End Developer & Designer</p>
+      <p>Optimist . Adventurer . Collector</p>
+    </header> <!-- #top -->
     
-    <p>
-      If you feel I may be able to help you with a project, you are probably right and you should <a href="mailto:bradstemke@gmail.com">say hello</a>.
-    </p> 
+    <section>  
+      <p>
+        I like to code, and I like what coding can create. Working with people to help shape and bring their ideas to life on the web is something I really enjoy, and I do that with HTML, CSS/Sass, JS, PHP, and Liquid.
+      </p>
+      <p>
+        I maintain several collections at home, the main one being my collection of found audio, mostly in the form of discarded cassette tapes. I am building an online archive of my audio collection, which can be found here, <a href="http://www.lonelywithnoise.com" target="blank">Lonely With Noise</a>.
+      </p>
 
-    <p>
-      I am also on <a href="http://twitter.com/bradstemke" target="_blank">Twitter</a>, <a href="http://instagram.com/bradleyj" target="_blank">Instagram</a>, <a href="http://bradstemke.vsco.co/" target="_blank">VSCO Grid</a>, and <a href="http://github.com/bradstemke" target="_blank">GitHub</a>.
-    </p>
+      <p>
+        When I am not at home, I am usually out thrifting or at an estate sale, having a burger, spending time with good friends, or driving somewhere new to explore. These days are documented in photos with my iPhone & Fuji Disposable cameras.
+      </p>
+      
+      <p>
+        If you feel I may be able to help you with a project, you are probably right and you should <a href="mailto:bradstemke@gmail.com">say hello</a>.
+      </p> 
 
-    <p>
-      I have been <a href="http://www.bradstemke.com/blog">blogging</a> lately.
-    </p>
+      <div class="mobile-overlay">
+        <div class="mobile-menu-body">
+          <div class="inner row">
+            <p>Current Favorite Poem //</p>
+            <p>Instructions for living a life.</p>
+            <p>Pay attention.</p>
+            <p>Be astonished.</p>
+            <p>Tell about it.</p>
+            <p class="right">// Mary Oliver</p>
+            <p class="mobile-menu-close">X</p>
+          </div>
+        </div><!--.mobile-nav-->        
+      </div><!--.mobile-nav-overlay-->
+ 
+      <p class="social">
+        <a href="http://twitter.com/bradstemke" target="_blank">Twitter</a><a href="http://instagram.com/bradstemke" target="_blank">Instagram</a><a href="http://bradstemke.vsco.co/" target="_blank">VSCO Grid</a><a href="http://github.com/bradstemke" target="_blank">GitHub</a>
+      </p>
+                
+      <p>
+        I have been <a href="http://www.bradstemke.com/blog" target="_blank">blogging</a> lately.
+      </p>
+          
+      <a class="mobile-menu-toggle"><img src="assets/images/burger.png" alt="burger" /></a>
 
-  </div> <!-- .bio -->
+    </section> <!-- section -->
 
-  <footer>    
-    <a href="index.html">↑</a>      
-  </footer>
-  
+    <footer>          
+      <a href="#top">↑</a>      
+    </footer> <!-- footer -->
+
+  </div> <!-- wrapper -->
+
+  <!-- JS -->  
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script type="text/javascript" src="assets/js/magic.js"></script>
+
   <!-- Google Analytics -->
   <script type="text/javascript">
   $(document).ready(function() {
@@ -71,5 +96,5 @@
   });
   </script>
 
-</body> <!-- #wrapper -->
+</body> 
 </html>

@@ -1,44 +1,79 @@
 // style.sass
 
 // Colors
-$black:  rgb(50, 50, 50)
-$white:  rgb(250, 250, 250)
-$cloudy: rgb(236, 240, 241)
-$blue:   rgb(52, 152, 219)
+$black:     rgb(50, 50, 50)
+$fallblack: #555
+$white:     rgb(250, 250, 250)
+$cloudy:    rgb(236, 240, 241)
+$blue:      rgb(52, 152, 219)
+
+// Fonts
+$serif:     "Nitti", serif
+
+// Mixins
+@mixin transition($transition-property, $transition-time, $method) 
+  -webkit-transition: $transition-property $transition-time $method
+  -moz-transition: $transition-property $transition-time $method
+  -ms-transition: $transition-property $transition-time $method
+  -o-transition: $transition-property $transition-time $method
+  transition: $transition-property $transition-time $method
+
+@mixin border-radius($percent)
+  -webkit-border-radius: $percent  
+  -moz-border-radius: $percent
+  border-radius: $percent
 
 // Font Styling
 @font-face 
   font-family: Nitti
   src: url('../fonts/Nitti.otf')
 
-p, h1
-  font-family: "Nitti", serif
+p, h1, li
+  font-family: $serif
   text-align: center
+  color: $fallblack
   color: rgba($black, 0.9)
 
 p
-  font: 400 18px/34px "Nitti", serif
+  font: 400 18px/34px $serif
   @media screen and (min-width: 320px) and (max-width: 480px) 
     line-height: 1.25em
     font-size: 0.85em
 
 h1
   font-size: 2em
+  margin-bottom: 1em
   @media screen and (min-width: 320px) and (max-width: 480px) 
     font-size: 1.5em
 
 a 
-  color: rgba($black, 0.7)
-  font-family: "Nitti", serif
-  text-decoration: underline 
+  color: $blue
+  font-family: $serif
+  text-decoration: none    
+  &:hover, &:focus    
+    background: $white
+    color: $blue
+    text-decoration: none
+    border-bottom: 2px solid $blue
 
-a:hover 
-  background: rgba($white, 0.8)
-  text-decoration: none
+a.replace-text
+  &:hover, &:focus
+    span
+      display: none
+    &:after
+      padding-left: 5px
+      padding-right: 5px
+      content: "Coming Soon"
 
 // Header
 header
   padding-top: 3em
+  background-color: $white
+  padding-bottom: 2em
+  text-align: center
+  position: relative
+  h1, p
+    color: $blue
   @media screen and (min-width: 320px) and (max-width: 480px) 
     background-color: $blue
     padding-top: 2em
@@ -48,15 +83,9 @@ header
 
 // Content
 html 
-  background: url(../images/bs_bg.png) no-repeat center center fixed
-  -webkit-background-size: cover
-  -moz-background-size: cover
-  -o-background-size: cover
-  background-size: cover
-  @media screen and (min-width: 320px) and (max-width: 480px) 
-    background: none
+  background-color: $blue
   
-.bio 
+section
   margin-top: 1em
   padding: 2em 1.5em 0 1.5em
   @media screen and (min-width: 320px) and (max-width: 480px) 
@@ -64,34 +93,221 @@ html
   p
     text-align: center
     padding: 0 0 2em 0
-    margin: 0 auto    
+    margin: 0 auto
+    color: $fallblack    
     color: rgba($black, 0.9)
     &:last-of-type
       padding-bottom: 0.5em
+      text-align: center
     @media screen and (min-width: 320px) and (max-width: 480px) 
       text-align: justify
-      line-height: 1.25em
+      line-height: 1.75em
       font-size: 0.85em
+
+.social
+  @media screen and (min-width: 320px) and (max-width: 480px) 
+    text-align: center
+    width: 100%
+
+.social a
+  margin: 0 0.5em
+  @include transition(all, 0.3s, ease)
+  color: $white
+  padding-left: 0.5em
+  padding-right: 0.5em
+  font-family: $serif
+  text-decoration: none
+  background-color: $blue
+  border: 2px solid $blue
+  &:hover, &:focus
+    background: $white
+    color: $blue
+    text-decoration: none
+  @media screen and (min-width: 320px) and (max-width: 480px) 
+    margin: 0.5em 0.25em
+    text-align: center
+    width: 40%
+    display: inline-block
   
 #wrapper 
   width: 100%
+  position: relative
   margin: 0 auto
-  background: rgba($white, 0.8)
+  background: $white
+  @media screen and (min-width: 320px) and (max-width: 480px) 
+    background-color: $white
 
+// Mobile Menu Overlay
+//////////////////////////////////////////////////////
+.mobile-overlay
+  opacity: 0
+  visibility: hidden
+  position: fixed
+  z-index: 200
+  top: 0
+  left: 0
+  right: 0
+  bottom: -200px
+  background: rgba($blue, 0.7)
+  color: #FFF
+
+.mobile-menu-toggle 
+  text-align: center
+  display: block
+  cursor: pointer
+  &:hover
+    border: 0
+  img 
+    width: 50px
+    height: 50px
+    &:hover
+      -moz-transition: all 0.5s ease-in-out
+      -webkit-transition: all 0.5s ease-in-out
+      -o-transition: all 0.5s ease-in-out
+      -ms-transition: all 0.5s ease-in-out
+      transition: all 0.5s ease-in-out
+      -moz-transform: rotate(-360deg)
+      -webkit-transform: rotate(-360deg)
+      -o-transform: rotate(-360deg)
+      -ms-transform: rotate(-360deg)
+      transform: rotate(-360deg)
+
+.mobile-menu
+  opacity: 0
+  visibility: hidden
+  position: fixed
+  z-index: 200
+  left: 0
+  top: 0
+  width: 100%
+  height: 100%
+  background: #2B3F1B
+  -webkit-transform: translate3d(0, 0, 0)
+  -moz-transform: translate3d(0, 0, 0)
+  -ms-transform: translate3d(0, 0, 0)
+  -o-transform: translate3d(0, 0, 0)
+  transform: translate3d(0, 0, 0)
+  -webkit-transition: visibility 0, opacity 0.4s ease-in-out
+  -moz-transition: visibility 0, opacity 0.4s ease-in-out
+  transition: visibility 0, opacity 0.4s ease-in-out
+
+body.site-loaded
+  .mobile-overlay
+    background: white
+    -webkit-transition: visibility 0, opacity 0.8s ease
+    -moz-transition: visibility 0, opacity 0.8s ease
+    transition: visibility 0, opacity 0.8s ease
+    -webkit-transition-delay: 1.2s, 0.8s
+  .mobile-menu
+    -webkit-transition: visibility 0, opacity 0.4s ease-in-out
+    -moz-transition: visibility 0, opacity 0.4s ease-in-out
+    transition: visibility 0, opacity 0.4s ease-in-out
+    -webkit-transition-delay: 0.4s, 0
+
+body.mobile-menu-open
+  overflow: hidden
+
+body.mobile-menu-open
+  .mobile-overlay, .mobile-menu
+    visibility: visible
+    opacity: 1
+  .mobile-overlay
+    -webkit-transition: visibility 0 0, opacity 0.4s ease 0
+    -moz-transition: visibility 0 0, opacity 0.4s ease 0
+    transition: visibility 0 0, opacity 0.4s ease 0
+    -webkit-transition-delay: 0s, 0
+  .mobile-menu
+    -webkit-transition: visibility 0 0, opacity 0.4s ease-in-out
+    -moz-transition: visibility 0 0, opacity 0.4s ease-in-out
+    transition: visibility 0 0, opacity 0.4s ease-in-out
+    -webkit-transition-delay: 0s, 0.4s
+
+.mobile-menu-body
+  height: 100%
+  width: 460px
+  margin: 0 auto
+  @media screen and (max-width: 480px)
+    width: 80%    
+  .inner
+    position: relative
+    top: 30%    
+    -webkit-transform: translateY(-50%)
+    -moz-transform: translateY(-50%)
+    -ms-transform: translateY(-50%)
+    -o-transform: translateY(-50%)
+    transform: translateY(-50%)
+    p      
+      line-height: 0.25em
+      text-align: left
+      text-transform: uppercase      
+      color: #0c0d18
+      &.right
+        text-align: right
+      &:first-child
+        margin-bottom: 2em
+      &:last-child
+        margin-bottom: 1em
+        text-align: center
+
+.mobile-menu-close
+  cursor: pointer
+
+// Top Ten
+#topten   
+  background-color: $white
+  text-align: left
+  margin-top: 0
+  margin-bottom: 2em
+  padding-top: 0
+  li
+    display: inline
+    width: 1em
+    padding: 0.25em 0.5em    
+    color: $blue
+    cursor: pointer
+    border-bottom: 2px solid $blue
+    &:hover 
+      border-bottom: 2px solid $white
+  @media screen and (max-width: 950px)
+    display: none
+
+#toptenitem
+  font: 400 1em $serif   
+  border: 2px solid $blue
+  background-color: $white
+  color: $blue  
+  padding: 0.5em
+  margin: 0 auto
+  margin-bottom: 2.5em
+  height: 2em
+  display: block
+  line-height: 2em
+  @media screen and (max-width: 950px)
+    display: none
+  
+// Footer
 footer 
   padding: 2em 0
+  margin-bottom: 3em
   text-align: center
   a
-    font: 400 1em "Nitti", serif        
+    @include transition(all, 0.3s, ease)   
+    font: 400 1em $serif       
     text-decoration: none
-    color: rgba($black, 0.9)
+    color: $blue
+    @include border-radius(50%)
+    padding-left: 0.5em
+    padding-right: 0.5em
+    border: 2px solid $blue
     @media screen and (min-width: 320px) and (max-width: 480px)
-      color: rgba($blue, 0.9)
-  &:hover
-    color: rgba($black, 0.9)
-    text-decoration: underline
+      color: $blue
+    &:hover, &:focus
+      color: $white
+      background-color: $blue
+      text-decoration: none
+      border: 2px solid $blue
 
-// Computer
+// Desktop
 @media screen and (min-width: 768px) 
   #wrapper 
-    width: 700px
+    width: 725px
